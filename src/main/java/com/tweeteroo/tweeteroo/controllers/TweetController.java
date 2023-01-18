@@ -18,7 +18,9 @@ public class TweetController {
     public void postTweet(@RequestBody NewTweetDTO req) {
         repository.save(new Tweets(req));
     }
-
+      
     @GetMapping
-    public void getTweetsWithPagination(@RequestBody int page) {}
+    public void getTweetsWithPagination(@RequestBody int page) {
+        // TODO
+    }
 }
