@@ -7,6 +7,8 @@ import com.tweeteroo.tweeteroo.repository.TweetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/tweets")
 public class TweetController {
@@ -22,5 +24,10 @@ public class TweetController {
     @GetMapping
     public void getTweetsWithPagination(@RequestBody int page) {
         // TODO
+    }
+
+    @GetMapping("/{username}")
+    public List<Tweets> findByUsername(@PathVariable String username) {
+        return repository.findByUsername(username);
     }
 }

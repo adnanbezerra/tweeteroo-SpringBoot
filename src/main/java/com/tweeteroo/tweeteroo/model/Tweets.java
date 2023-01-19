@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,8 +26,10 @@ public class Tweets {
   private Long id;
 
   @Column(length = 240)
+  @NotNull
   private String tweet;
 
   @Column(length = 20)
+  @NotNull
   private String username;
 }
