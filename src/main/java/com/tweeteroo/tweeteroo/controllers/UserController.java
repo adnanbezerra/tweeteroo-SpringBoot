@@ -1,9 +1,8 @@
 package com.tweeteroo.tweeteroo.controllers;
 
 import com.tweeteroo.tweeteroo.dto.NewUserDTO;
-import com.tweeteroo.tweeteroo.model.User;
-import com.tweeteroo.tweeteroo.repository.UserRepository;
 
+import com.tweeteroo.tweeteroo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserRepository repository;
+    private UserService service;
 
     @PostMapping
     public void signup(@RequestBody NewUserDTO req) {
-        repository.save(new User(req));
+        service.save(req);
     }
 
 }

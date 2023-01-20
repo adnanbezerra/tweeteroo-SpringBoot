@@ -7,8 +7,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.URL;
 
 @Data
 @Entity
@@ -25,8 +27,11 @@ public class User {
   private Long id;
 
   @Column(length = 20)
+  @NotNull
   private String username;
 
   @Column(length = 244)
+  @NotNull
+  @URL
   private String avatar;
 }
