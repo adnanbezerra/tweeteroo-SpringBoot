@@ -6,6 +6,8 @@ import com.tweeteroo.tweeteroo.model.Users;
 import com.tweeteroo.tweeteroo.repository.TweetRepository;
 import com.tweeteroo.tweeteroo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -27,5 +29,9 @@ public class TweetService {
 
     public List<Tweets> findByUsername(String username) {
         return tweetRepository.findByUsername(username);
+    }
+
+    public Page<Tweets> getTweets(Pageable page) {
+        return tweetRepository.findAllByOrderByIdDesc(page);
     }
 }

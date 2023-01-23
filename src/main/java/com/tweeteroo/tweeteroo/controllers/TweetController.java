@@ -5,6 +5,10 @@ import com.tweeteroo.tweeteroo.model.Tweets;
 
 import com.tweeteroo.tweeteroo.services.TweetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,8 +26,10 @@ public class TweetController {
     }
 
     @GetMapping
-    public void getTweetsWithPagination(@RequestParam int page) {
-        // TODO
+    public Page<Tweets> getLastFiveTweets(@RequestParam String page) {
+        int pageNumber = Integer.parseInt(page);
+        Pageable sortedByIdDesc = PageRequest.of(pageNumber, 5, Sort.by("id").descending());
+        return service.getTweets(sortedByIdDesc);
     }
 
     @GetMapping("/{username}")
