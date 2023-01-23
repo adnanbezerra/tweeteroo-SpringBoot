@@ -2,8 +2,8 @@ package com.tweeteroo.tweeteroo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.tweeteroo.tweeteroo.model.User;
+import com.tweeteroo.tweeteroo.model.Users;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    public User findByUsername(String username);
+public interface UserRepository extends JpaRepository<Users, Long> {
+    public Users findByUsername(String username);
 }

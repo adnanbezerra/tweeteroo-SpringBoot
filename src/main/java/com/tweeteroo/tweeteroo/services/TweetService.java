@@ -2,7 +2,7 @@ package com.tweeteroo.tweeteroo.services;
 
 import com.tweeteroo.tweeteroo.dto.NewTweetDTO;
 import com.tweeteroo.tweeteroo.model.Tweets;
-import com.tweeteroo.tweeteroo.model.User;
+import com.tweeteroo.tweeteroo.model.Users;
 import com.tweeteroo.tweeteroo.repository.TweetRepository;
 import com.tweeteroo.tweeteroo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class TweetService {
     private UserRepository userRepository;
 
     public void saveTweet(@RequestBody NewTweetDTO req) {
-        User user = userRepository.findByUsername(req.username());
+        Users user = userRepository.findByUsername(req.username());
 
         tweetRepository.save(new Tweets(req, user.getAvatar()));
     }

@@ -15,9 +15,9 @@ import org.hibernate.validator.constraints.URL;
 @Data
 @Entity
 @NoArgsConstructor
-public class User {
+public class Users {
 
-  public User(NewUserDTO newUser) {
+  public Users(NewUserDTO newUser) {
     this.username = newUser.username();
     this.avatar = newUser.avatar();
   }
