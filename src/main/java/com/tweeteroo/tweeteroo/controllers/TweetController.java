@@ -20,14 +20,14 @@ public class TweetController {
     public void postTweet(@RequestBody NewTweetDTO req) {
         service.saveTweet(req);
     }
-      
+
     @GetMapping
     public void getTweetsWithPagination(@RequestParam int page) {
         // TODO
     }
 
     @GetMapping("/{username}")
-        public List<Tweets> findByUsername(@PathVariable String username) {
-            return service.findByUsername(username);
-        }
+    public List<Tweets> findByUsername(@PathVariable String username) {
+        return service.findByUsername(username);
+    }
 }
