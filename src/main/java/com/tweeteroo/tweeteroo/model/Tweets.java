@@ -16,9 +16,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Tweets {
 
-  public Tweets(NewTweetDTO newTweet) {
+  public Tweets(NewTweetDTO newTweet, String avatar) {
     this.tweet = newTweet.tweet();
     this.username = newTweet.username();
+    this.avatar = avatar;
   }
 
   @Id
@@ -32,4 +33,8 @@ public class Tweets {
   @Column(length = 20)
   @NotNull
   private String username;
+
+  @Column(length = 100)
+  @NotNull
+  private String avatar;
 }
